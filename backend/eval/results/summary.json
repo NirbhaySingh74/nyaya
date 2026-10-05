@@ -1,0 +1,266 @@
+{
+  "updated": "2026-10-05",
+  "retrieval": {
+    "n_questions": 78,
+    "modes": {
+      "vector": {
+        "recall@1": 0.6731,
+        "recall@3": 0.8718,
+        "recall@5": 0.9423,
+        "recall@10": 0.9744,
+        "hit@1": 0.6923,
+        "hit@3": 0.8974,
+        "hit@5": 0.9615,
+        "hit@10": 0.9872,
+        "mrr@10": 0.7981,
+        "latency_ms_p50": 16.2,
+        "latency_ms_p95": 20.4,
+        "by_split": {
+          "dev": {
+            "n": 39,
+            "recall@1": 0.6026,
+            "recall@5": 0.9487,
+            "mrr@10": 0.7658
+          },
+          "test": {
+            "n": 39,
+            "recall@1": 0.7436,
+            "recall@5": 0.9359,
+            "mrr@10": 0.8304
+          }
+        },
+        "by_type": {
+          "direct": {
+            "n": 25,
+            "recall@5": 0.96,
+            "mrr@10": 0.93
+          },
+          "keyword": {
+            "n": 10,
+            "recall@5": 0.9,
+            "mrr@10": 0.8333
+          },
+          "multi": {
+            "n": 5,
+            "recall@5": 0.9,
+            "mrr@10": 0.7667
+          },
+          "paraphrase": {
+            "n": 38,
+            "recall@5": 0.9474,
+            "mrr@10": 0.7062
+          }
+        }
+      },
+      "fts": {
+        "recall@1": 0.2372,
+        "recall@3": 0.5641,
+        "recall@5": 0.6603,
+        "recall@10": 0.8462,
+        "hit@1": 0.2564,
+        "hit@3": 0.5769,
+        "hit@5": 0.6667,
+        "hit@10": 0.859,
+        "mrr@10": 0.4416,
+        "latency_ms_p50": 1.4,
+        "latency_ms_p95": 2.3,
+        "by_split": {
+          "dev": {
+            "n": 39,
+            "recall@1": 0.2949,
+            "recall@5": 0.6923,
+            "mrr@10": 0.4934
+          },
+          "test": {
+            "n": 39,
+            "recall@1": 0.1795,
+            "recall@5": 0.6282,
+            "mrr@10": 0.3898
+          }
+        },
+        "by_type": {
+          "direct": {
+            "n": 25,
+            "recall@5": 0.84,
+            "mrr@10": 0.582
+          },
+          "keyword": {
+            "n": 10,
+            "recall@5": 0.8,
+            "mrr@10": 0.581
+          },
+          "multi": {
+            "n": 5,
+            "recall@5": 0.9,
+            "mrr@10": 0.6167
+          },
+          "paraphrase": {
+            "n": 38,
+            "recall@5": 0.4737,
+            "mrr@10": 0.2895
+          }
+        }
+      },
+      "bm25": {
+        "recall@1": 0.4936,
+        "recall@3": 0.8141,
+        "recall@5": 0.8526,
+        "recall@10": 0.8974,
+        "hit@1": 0.5128,
+        "hit@3": 0.8333,
+        "hit@5": 0.859,
+        "hit@10": 0.9103,
+        "mrr@10": 0.6731,
+        "latency_ms_p50": 0.6,
+        "latency_ms_p95": 0.7,
+        "by_split": {
+          "dev": {
+            "n": 39,
+            "recall@1": 0.3718,
+            "recall@5": 0.8333,
+            "mrr@10": 0.6253
+          },
+          "test": {
+            "n": 39,
+            "recall@1": 0.6154,
+            "recall@5": 0.8718,
+            "mrr@10": 0.7209
+          }
+        },
+        "by_type": {
+          "direct": {
+            "n": 25,
+            "recall@5": 0.96,
+            "mrr@10": 0.8357
+          },
+          "keyword": {
+            "n": 10,
+            "recall@5": 0.9,
+            "mrr@10": 0.8167
+          },
+          "multi": {
+            "n": 5,
+            "recall@5": 0.9,
+            "mrr@10": 0.8
+          },
+          "paraphrase": {
+            "n": 38,
+            "recall@5": 0.7632,
+            "mrr@10": 0.5117
+          }
+        }
+      },
+      "hybrid": {
+        "recall@1": 0.6987,
+        "recall@3": 0.8782,
+        "recall@5": 0.9167,
+        "recall@10": 0.9615,
+        "hit@1": 0.7179,
+        "hit@3": 0.8974,
+        "hit@5": 0.9359,
+        "hit@10": 0.9744,
+        "mrr@10": 0.8124,
+        "latency_ms_p50": 19.0,
+        "latency_ms_p95": 22.4,
+        "by_split": {
+          "dev": {
+            "n": 39,
+            "recall@1": 0.6282,
+            "recall@5": 0.9231,
+            "mrr@10": 0.7767
+          },
+          "test": {
+            "n": 39,
+            "recall@1": 0.7692,
+            "recall@5": 0.9103,
+            "mrr@10": 0.8481
+          }
+        },
+        "by_type": {
+          "direct": {
+            "n": 25,
+            "recall@5": 0.96,
+            "mrr@10": 0.9213
+          },
+          "keyword": {
+            "n": 10,
+            "recall@5": 0.9,
+            "mrr@10": 0.8643
+          },
+          "multi": {
+            "n": 5,
+            "recall@5": 0.9,
+            "mrr@10": 0.8
+          },
+          "paraphrase": {
+            "n": 38,
+            "recall@5": 0.8947,
+            "mrr@10": 0.7288
+          }
+        }
+      },
+      "hybrid_rerank": {
+        "recall@1": 0.6923,
+        "recall@3": 0.8782,
+        "recall@5": 0.9551,
+        "recall@10": 0.9808,
+        "hit@1": 0.7051,
+        "hit@3": 0.8974,
+        "hit@5": 0.9744,
+        "hit@10": 0.9872,
+        "mrr@10": 0.8128,
+        "latency_ms_p50": 1537.9,
+        "latency_ms_p95": 2435.2,
+        "by_split": {
+          "dev": {
+            "n": 39,
+            "recall@1": 0.641,
+            "recall@5": 0.9744,
+            "mrr@10": 0.788
+          },
+          "test": {
+            "n": 39,
+            "recall@1": 0.7436,
+            "recall@5": 0.9359,
+            "mrr@10": 0.8376
+          }
+        },
+        "by_type": {
+          "direct": {
+            "n": 25,
+            "recall@5": 0.96,
+            "mrr@10": 0.93
+          },
+          "keyword": {
+            "n": 10,
+            "recall@5": 1.0,
+            "mrr@10": 0.875
+          },
+          "multi": {
+            "n": 5,
+            "recall@5": 0.9,
+            "mrr@10": 0.8
+          },
+          "paraphrase": {
+            "n": 38,
+            "recall@5": 0.9474,
+            "mrr@10": 0.7211
+          }
+        }
+      }
+    }
+  },
+  "answers": {
+    "n": 83,
+    "answer_model": "openai/gpt-oss-120b",
+    "judge_model": "qwen/qwen3.8-27b",
+    "faithfulness": 0.9822,
+    "fully_faithful_rate": 0.9474,
+    "correctness": 0.859,
+    "citation_valid_rate": 1.0,
+    "citation_gold_rate": 0.9605,
+    "answer_rate_in_scope": 0.9744,
+    "refusal_rate_out_of_scope": 1.0,
+    "latency_ms_p50": 4300
+  }
+}

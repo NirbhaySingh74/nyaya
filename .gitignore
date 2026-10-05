@@ -1,0 +1,11 @@
+.DS_Store
+.env
+.env.local
+.pgdata/
+backend/.venv/
+backend/.models/
+__pycache__/
+*.pyc
+frontend/node_modules/
+frontend/.next/
+frontend/next-env.d.ts

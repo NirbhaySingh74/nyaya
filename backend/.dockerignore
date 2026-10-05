@@ -1,0 +1,9 @@
+.venv
+.models
+.env
+.env.*
+!.env.example
+__pycache__
+*.pyc
+data/processed
+eval/results/answers*.jsonl

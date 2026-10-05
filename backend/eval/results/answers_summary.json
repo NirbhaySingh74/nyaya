@@ -1,0 +1,13 @@
+{
+  "n": 83,
+  "answer_model": "openai/gpt-oss-120b",
+  "judge_model": "qwen/qwen3.8-27b",
+  "faithfulness": 0.9822,
+  "fully_faithful_rate": 0.9474,
+  "correctness": 0.859,
+  "citation_valid_rate": 1.0,
+  "citation_gold_rate": 0.9605,
+  "answer_rate_in_scope": 0.9744,
+  "refusal_rate_out_of_scope": 1.0,
+  "latency_ms_p50": 4300
+}

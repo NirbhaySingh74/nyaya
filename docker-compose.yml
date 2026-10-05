@@ -1,0 +1,19 @@
+# Postgres 17 + pgvector on localhost:5433 (same URL as the default DATABASE_URL).
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: rag
+      POSTGRES_PASSWORD: rag
+      POSTGRES_DB: rag
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rag"]
+      interval: 2s
+      retries: 20
+
+volumes:
+  pgdata:
