@@ -42,12 +42,17 @@ const pct = (x: number | null | undefined) => (x == null ? "—" : `${(x * 100).
 
 async function getMeta(): Promise<Meta | null> {
   await connection();
-  try {
-    const res = await fetch(`${process.env.API_URL ?? API_URL}/api/meta`, { cache: "no-store" });
-    return res.ok ? res.json() : null;
-  } catch {
-    return null;
+  // The API scales to zero; the first request after idle can take ~30 s while it wakes.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const res = await fetch(`${process.env.API_URL ?? API_URL}/api/meta`, {
+        cache: "no-store",
+        signal: AbortSignal.timeout(45_000),
+      });
+      if (res.ok) return res.json();
+    } catch {}
   }
+  return null;
 }
 
 export default async function EvalPage() {
