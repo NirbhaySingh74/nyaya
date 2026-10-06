@@ -1,20 +1,23 @@
-# Backend image for Hugging Face Spaces (Docker SDK, port 7860, non-root uid 1000).
+# Backend image for Google Cloud Run (listens on $PORT, runs as non-root).
 FROM python:3.11-slim
 
-RUN useradd -m -u 1000 user
+# Production reranker: same held-out Recall@5 as bge-reranker-base (93.6%) at
+# ~1/4 of the memory (0.65 GB vs 2.5 GB peak) and ~2x the speed.
+ARG RERANK_MODEL=Xenova/ms-marco-MiniLM-L-12-v2
+
+RUN useradd -m -u 1000 user && pip install --no-cache-dir uv==0.11.18
 WORKDIR /app
-RUN pip install --no-cache-dir uv==0.11.18
 ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy UV_PYTHON_DOWNLOADS=never \
-    HF_HUB_DISABLE_XET=1 PORT=7860
+    HF_HUB_DISABLE_XET=1 RERANK_MODEL=${RERANK_MODEL} PORT=8080
 
 COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen --no-dev --no-install-project
 
 COPY . .
-# Bake the ONNX models into the image so startup doesn't download ~1.3 GB.
+# Bake the ONNX models into the image so cold starts don't download them.
 RUN uv run --no-sync python -c "from app.models import embedder, reranker; embedder(); reranker()" \
     && chown -R user:user /app
 
 USER user
-EXPOSE 7860
-CMD ["sh", "-c", "uv run --no-sync uvicorn app.main:app --host 0.0.0.0 --port ${PORT} --proxy-headers --forwarded-allow-ips='*'"]
+EXPOSE 8080
+CMD ["sh", "-c", "exec uv run --no-sync uvicorn app.main:app --host 0.0.0.0 --port ${PORT} --proxy-headers --forwarded-allow-ips='*'"]
