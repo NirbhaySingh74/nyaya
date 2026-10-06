@@ -8,6 +8,10 @@ from app.config import get_settings
 
 
 def _configure(conn) -> None:
+    # A fresh database (e.g. a new Neon project) has no vector type until the
+    # extension exists, and register_vector would fail on every connection.
+    conn.execute("CREATE EXTENSION IF NOT EXISTS vector")
+    conn.commit()
     register_vector(conn)
 
 
