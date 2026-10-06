@@ -18,6 +18,10 @@ class Settings(BaseSettings):
     judge_model: str = "qwen/qwen3.8-27b"
     reasoning_effort: str = "medium"  # gpt-oss only: low | medium | high
 
+    # ONNX Runtime threads; 0 = library default. Set it in containers: the default
+    # sizes the pool to the host's cores, not the container's vCPUs.
+    onnx_threads: int = 0
+
     embed_model: str = "BAAI/bge-base-en-v1.5"
     rerank_model: str = "BAAI/bge-reranker-base"
 

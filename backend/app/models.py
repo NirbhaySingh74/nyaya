@@ -14,14 +14,18 @@ CACHE_DIR = str(ROOT / ".models")
 BGE_QUERY_PREFIX = "Represent this sentence for searching relevant passages: "
 
 
+def _threads() -> int | None:
+    return get_settings().onnx_threads or None
+
+
 @lru_cache
 def embedder() -> TextEmbedding:
-    return TextEmbedding(get_settings().embed_model, cache_dir=CACHE_DIR)
+    return TextEmbedding(get_settings().embed_model, cache_dir=CACHE_DIR, threads=_threads())
 
 
 @lru_cache
 def reranker() -> TextCrossEncoder:
-    return TextCrossEncoder(get_settings().rerank_model, cache_dir=CACHE_DIR)
+    return TextCrossEncoder(get_settings().rerank_model, cache_dir=CACHE_DIR, threads=_threads())
 
 
 def embed_passages(texts: list[str]) -> list[np.ndarray]:
